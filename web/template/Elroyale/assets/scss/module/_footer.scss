@@ -1,0 +1,181 @@
+/*-------------------------
+    Footer
+--------------------------*/
+.footer {
+    .contact-box .contact__box-title {
+        color: $color-white;
+    }
+
+    .footer__newsletter-form .form-group {
+        max-width: 260px;
+        margin: 0 auto 30px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            right: 2px;
+            bottom: 0;
+            left: 2px;
+            height: calc(100% + 4px);
+            display: block;
+            border-radius: 2px;
+            border: 1px solid $color-theme;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border: 1px solid $color-theme;
+            color: $color-white;
+            border-radius: 2px;
+            padding-right: 40px;
+            position: relative;
+            z-index: 2;
+
+            &::-webkit-input-placeholder {
+                color: #474747;
+                font-size: 12px;
+            }
+
+            &:-moz-placeholder {
+                color: #474747;
+                font-size: 12px;
+            }
+
+            &::-moz-placeholder {
+                color: #474747;
+                font-size: 12px;
+            }
+
+            &:-ms-input-placeholder {
+                color: #474747;
+                font-size: 12px;
+            }
+        }
+
+        .form__submit {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: $color-theme;
+        }
+    }
+
+    .footer-top {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .footer-bottom {
+        position: relative;
+        background-color: #1b1b1b;
+        padding-top: 35px;
+        padding-bottom: 35px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: -23px;
+            left: 50%;
+            @include prefix(transform, translateX(-50%), webkit moz ms o);
+            z-index: 2;
+            background-image: url(../images/shapes/shape1.png);
+            width: 28px;
+            height: 38px;
+        }
+    }
+
+    .footer__links li {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            font-size: 13px;
+            font-weight: 700;
+            color: $color-white;
+
+            &:hover {
+                color: $color-theme;
+            }
+        }
+    }
+
+    .footer__copyright {
+
+        span,
+        a {
+            font-size: 13px;
+        }
+    }
+}
+
+@include xs-sm-screens {
+    .footer {
+        .contact-box {
+            margin-top: 30px;
+            margin-bottom: 0;
+
+            .contact__box-title,
+            .contact__box-list {
+                margin-bottom: 10px;
+            }
+        }
+
+        .footer-top {
+            padding-top: 30px;
+            padding-bottom: 40px;
+
+            .row>[class*="col-"] {
+                &:nth-of-type(1) {
+                    order: 2;
+                }
+
+                &:nth-of-type(2) {
+                    order: 1;
+                }
+
+                &:nth-of-type(3) {
+                    order: 3;
+                }
+            }
+        }
+
+        .footer__links li {
+            margin-right: 10px;
+        }
+
+        .footer-bottom {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+}
+
+/* Scroll Top Button */
+#scrollTopBtn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 45px;
+    height: 45px;
+    opacity: 0;
+    z-index: 1000;
+    font-size: 20px;
+    border-radius: 3px;
+    color: $color-white;
+    background-color: $color-theme;
+    @include prefix(transform, translateY(30px), webkit moz ms o);
+    @include prefix(transition, all .7s ease-in-out, webkit moz ms o);
+
+    &:hover {
+        background-color: $color-heading;
+    }
+}
+
+#scrollTopBtn.actived {
+    opacity: 1;
+    @include prefix(transform, translateY(0), webkit moz ms o);
+}

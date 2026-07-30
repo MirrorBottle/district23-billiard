@@ -1,0 +1,14 @@
+/*----------------------- 
+    Clients
+-----------------------*/
+.client {
+    position: relative;
+    text-align: center;
+    @include prefix(transition, .3s ease, webkit moz ms o);
+
+    img {
+        display: inline-block;
+        width: auto !important;
+        max-width: 100%;
+    }
+}

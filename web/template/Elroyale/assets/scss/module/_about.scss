@@ -1,0 +1,14 @@
+/*----------------------- 
+    About
+-----------------------*/
+/* Mobile Phones and tablets */
+@include xs-sm-screens {
+
+    .about .mr-30 {
+        margin-right: 0 !important;
+    }
+
+    .about .ml-30 {
+        margin-left: 0 !important;
+    }
+}

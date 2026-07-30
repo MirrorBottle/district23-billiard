@@ -1,0 +1,181 @@
+/*-------------------------
+    page title 
+-------------------------*/
+
+.header-transparent+.page-title {
+    margin-top: -100px;
+}
+
+.pagetitle__subheading {
+    font-family: $font-thirdy;
+    font-size: 40px;
+    color: $color-gray;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.pagetitle__heading {
+    font-family: $font-secondary;
+    font-size: 55px;
+    font-weight: 400;
+    color: $color-white;
+    margin-bottom: 0;
+}
+
+.pagetitle__desc {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    color: $color-white;
+    margin-bottom: 0;
+}
+
+.page-title {
+    padding-top: 283px;
+    padding-bottom: 30px;
+
+    .breadcrumb {
+        margin-top: 143px;
+        margin-bottom: 0;
+    }
+
+    .breadcrumb-item a {
+        color: $color-white;
+
+        &:hover {
+            color: $color-theme;
+        }
+    }
+
+    .breadcrumb-item+.breadcrumb-item::before {
+        color: $color-white;
+        font-family: FontAwesome;
+        content: "\f105";
+    }
+
+    .breadcrumb-item.active {
+        color: $color-theme;
+    }
+}
+
+.page-title-layout2 {
+    padding-top: 250px;
+    padding-bottom: 85px;
+
+    .pagetitle__subheading {
+        font-family: $font-primary;
+        font-size: 12px;
+        margin-bottom: 9px;
+    }
+}
+
+.page-title-layout3 {
+    padding-top: 287px;
+    padding-bottom: 187px;
+}
+
+.page-title-layout4 {
+    padding-top: 340px;
+    padding-bottom: 85px;
+}
+
+.page-title-layout5 {
+    padding-top: 385px;
+    padding-bottom: 60px;
+
+    .breadcrumb {
+        margin-top: 10px;
+    }
+}
+
+.page-title-layout6 {
+    padding-top: 285px;
+    padding-bottom: 160px;
+
+    .breadcrumb {
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+}
+
+.page-title-layout7 {
+    padding-top: 290px;
+    padding-bottom: 180px;
+}
+
+.page-title-layout8 {
+    background-color: $color-gray;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .pagetitle__heading {
+        font-family: $font-primary;
+        font-size: 18px;
+        font-weight: 600;
+        color: $color-dark;
+    }
+
+    .breadcrumb-item a,
+    .breadcrumb-item.active,
+    .breadcrumb-item+.breadcrumb-item::before {
+        color: $color-body;
+    }
+
+    .breadcrumb {
+        margin-top: 0;
+    }
+}
+
+/* Mobile Phones and tablets */
+
+@include md-screens {
+    .page-title {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .page-title-layout7 {
+        padding-top: 190px;
+        padding-bottom: 180px;
+    }
+}
+
+@include xs-sm-screens {
+    .page-title {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .pagetitle__desc {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .pagetitle__subheading {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+
+    .pagetitle__heading {
+        font-size: 32px;
+    }
+
+    .page-title .breadcrumb {
+        margin-top: 20px;
+    }
+
+    .page-title-layout7 {
+        padding-bottom: 100px;
+    }
+
+    .page-title-layout8 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+
+        .breadcrumb {
+            -ms-flex-pack: center !important;
+            justify-content: center !important;
+        }
+    }
+}

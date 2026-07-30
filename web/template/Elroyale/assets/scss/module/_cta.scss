@@ -1,0 +1,136 @@
+/*-------------------------
+    Call To Action
+---------------------------*/
+.cta__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 11px;
+}
+
+.cta__desc {
+    margin-bottom: 0;
+}
+
+.cta__actions {
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+
+    .btn {
+        margin-left: 30px;
+    }
+}
+
+.cta__actions-text {
+    p {
+        font-size: 12px;
+    }
+
+    span {
+        font-family: $font-thirdy;
+        font-size: 40px;
+        line-height: 1;
+    }
+}
+
+.cta-layout2 {
+    .cta__subtitle {
+        font-family: $font-thirdy;
+        font-size: 40px;
+        color: $color-white;
+    }
+
+    .cta__title {
+        font-family: $font-secondary;
+        font-size: 85px;
+        font-weight: 400;
+        color: $color-white;
+    }
+
+    .cta__desc {
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-white;
+        margin-bottom: 32px;
+    }
+}
+
+.cta-layout3 {
+    padding-top: 230px;
+    padding-bottom: 220px;
+
+    .cta__title {
+        font-size: 55px;
+    }
+}
+
+@include lg-screens {
+    .cta-layout2 {
+        .cta__title {
+            font-size: 60px;
+        }
+    }
+}
+
+@include md-screens {
+    .cta-layout2 {
+        .cta__title {
+            font-size: 50px;
+        }
+    }
+
+    .cta-layout3 {
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        .cta__title {
+            font-size: 45px;
+        }
+    }
+}
+
+/* Mobile Phones and tablets */
+@include xs-sm-screens {
+    .cta-layout1 {
+        text-align: center;
+
+        .cta__actions {
+            display: block;
+            text-align: center;
+
+            .btn {
+                margin: 10px 0 0 0;
+            }
+        }
+
+        .cta__desc {
+            margin-bottom: 10px;
+        }
+    }
+
+    .cta-layout2 {
+        .cta__subtitle {
+            font-size: 30px;
+        }
+
+        .cta__title {
+            font-size: 35px;
+            margin-bottom: 0;
+        }
+
+        .cta__desc {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+
+    .cta-layout3 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        .cta__title {
+            font-size: 32px;
+        }
+    }
+}

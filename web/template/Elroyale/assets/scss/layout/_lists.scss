@@ -1,0 +1,36 @@
+/*-------------------
+    Lists
+-------------------*/
+.list-items {
+    li {
+        position: relative;
+        padding-left: 20px;
+        font-size: 13px;
+        margin-bottom: 7px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: $color-theme;
+            @include prefix(transform, translateY(-50%), webkit moz ms o);
+        }
+    }
+
+    &.list-items-right {
+        li {
+            text-align: right;
+            padding-left: 0;
+            padding-right: 20px;
+
+            &:before {
+                right: 0;
+                left: auto;
+            }
+        }
+    }
+}

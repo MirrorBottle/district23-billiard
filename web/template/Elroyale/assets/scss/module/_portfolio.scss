@@ -1,0 +1,139 @@
+/*-----------------------
+    portfolio
+------------------------*/
+.portfolio-item {
+    position: relative;
+    margin-bottom: 30px;
+
+    .portfolio__img {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .portfolio__hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba($color-black, 60%);
+        @include prefix(transition, all .4s linear, webkit moz ms o);
+
+        >a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &:hover {
+        .portfolio__hover {
+            opacity: 1;
+        }
+    }
+
+    .portfolio__title {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .portfolio__title a {
+        color: $color-heading;
+
+        &:hover {
+            color: $color-theme;
+        }
+    }
+}
+
+.portfolio-gallery-no-margin .portfolio-item {
+    margin-bottom: 0;
+}
+
+.zoom__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), webkit moz ms o);
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 20px;
+        @include prefix(transform, translate(-50%, -50%), webkit moz ms o);
+        background-color: $color-white;
+    }
+
+    &:after {
+        width: 20px;
+        height: 1px;
+    }
+}
+
+.portfolio-filter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    li {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            position: relative;
+            font-family: $font-primary;
+            color: $color-heading;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: capitalize;
+            display: block;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: $color-theme;
+                @include prefix(transition, all .4s linear, webkit moz ms o);
+            }
+        }
+
+        a:hover,
+        a.active {
+            color: $color-theme;
+
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Mobile Phones */
+@include xs-screens {
+    .portfolio-filter li {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}

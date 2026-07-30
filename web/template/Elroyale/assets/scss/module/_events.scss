@@ -1,0 +1,33 @@
+/*----------------------
+        Events
+-----------------------*/
+.events {
+    .post-item {
+        .post__content {
+            padding-left: 0;
+        }
+
+        .post__title {
+            font-size: 19px;
+        }
+
+        .btn__link {
+            margin-top: 8px;
+        }
+
+        .post__meta-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            white-space: nowrap;
+            margin: 0;
+
+            &.sold-out {
+                span {
+                    background-color: #ff0000;
+                }
+            }
+        }
+    }
+}

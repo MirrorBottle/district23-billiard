@@ -1,45 +1,78 @@
-import { defineQuery, type SanityDocument } from "next-sanity";
+﻿import { defineQuery, type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
+import MenuTabs from "./MenuTabs";
 
-const POSTS_QUERY = defineQuery(
-  `*[_type == "post" && defined(slug.current)] | order(_createdAt desc){ _id, title, slug }`
+const CATEGORIES_QUERY = defineQuery(
+  `*[_type == "category" && isActive == true] | order(sortOrder asc) {
+    _id,
+    name,
+    description,
+    image,
+    "items": *[_type == "menuItem" && isActive == true && category._ref == ^._id] | order(name asc) {
+      _id,
+      name,
+      description,
+      price
+    }
+  }`
 );
 
 export default async function Home() {
-  const posts = await client.fetch<SanityDocument[]>(
-    POSTS_QUERY,
+  const categories = await client.fetch<SanityDocument[]>(
+    CATEGORIES_QUERY,
     {},
-    { next: { revalidate: 30 } }
+    { next: { revalidate: 300 } }
   );
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            district23
-          </h1>
-          {posts.length === 0 ? (
-            <p className="text-zinc-500">No posts yet. Add content in the Studio.</p>
-          ) : (
-            <ul className="flex flex-col gap-2">
-              {posts.map((post) => (
-                <li key={post._id}>
-                  <a
-                    href={`/posts/${(post.slug as { current?: string })?.current}`}
-                    className="font-medium text-zinc-950 underline dark:text-zinc-50"
-                  >
-                    {post.title as string}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+    <div className="wrapper">
+      <section className="text-block">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+              <div className="heading heading-layout1 text-center">
+                <span className="heading__subtitle">Taste The Best</span>
+                <h2 className="heading__title">Discover Our Menu</h2>
+                <p className="heading__desc">
+                  Nikmati berbagai pilihan minuman dan makanan khas District 23,
+                  dibuat dengan bahan pilihan untuk menemani waktu santaimu.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <span className="text-sm text-zinc-400">Powered by Sanity</span>
+      </section>
+
+      <MenuTabs categories={categories as unknown as Parameters<typeof MenuTabs>[0]["categories"]} />
+
+      <footer className="footer footer-layout1 text-center bg-dark">
+        <div className="footer-top">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-sm-12 col-md-12 col-lg-12">
+                <h2 style={{ fontFamily: "'Yeseva One', serif", color: "#d3a971", fontWeight: 400, marginBottom: 10 }}>
+                  District 23
+                </h2>
+                <p className="mx-2 mb-20">Restaurant &amp; Cafe - Foremose</p>
+                <ul className="social__icons social__icons-white justify-content-center">
+                  <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+        <div className="footer-bottom">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 col-md-12 col-lg-12">
+                <div className="footer__copyright">
+                  <span>&copy; {new Date().getFullYear()} District 23</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
