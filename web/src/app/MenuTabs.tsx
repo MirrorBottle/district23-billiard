@@ -6,6 +6,7 @@ import { urlFor } from "@/sanity/image";
 interface MenuItem {
   _id: string;
   name: string;
+  extra?: string;
   description?: string;
   price: string;
 }
@@ -114,7 +115,11 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
               className="text-banner text-banner-layout2 text-center bg-overlay bg-overlay-gradient bg-parallax"
               style={
                 bgImage
-                  ? { backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" }
+                  ? {
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${bgImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }
                   : { background: "#222" }
               }
             >
@@ -136,6 +141,7 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
                       {leftCol.map((item) => (
                         <div className="menu-item" key={item._id}>
                           <h4 className="menu__item-title">{item.name}</h4>
+                          {item.extra && <span className="pricing__tag">{item.extra}</span>}
                           <span className="menu__item-price">{item.price}</span>
                           {item.description && <p className="menu__item-desc">{item.description}</p>}
                         </div>
@@ -147,6 +153,7 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
                       {rightCol.map((item) => (
                         <div className="menu-item" key={item._id}>
                           <h4 className="menu__item-title">{item.name}</h4>
+                          {item.extra && <span className="pricing__tag">{item.extra}</span>}
                           <span className="menu__item-price">{item.price}</span>
                           {item.description && <p className="menu__item-desc">{item.description}</p>}
                         </div>
