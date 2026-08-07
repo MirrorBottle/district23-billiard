@@ -1,10 +1,10 @@
 {"_id":"category-coffee","_type":"category","name":"Coffee","description":"Pilihan kopi nikmat dari biji pilihan terbaik.","isActive":true,"sortOrder":1}
-{"_id":"category-cemilan","_type":"category","name":"Cemilan","description":"Camilan ringan yang cocok menemani waktu santai.","isActive":true,"sortOrder":9}
+{"_id":"category-cemilan","_type":"category","name":"Cemilan","description":"Camilan ringan yang cocok menemani waktu santai.","isActive":true,"sortOrder":3}
 {"_id":"category-milk-base","_type":"category","name":"Milk / Susu Base","description":"Minuman berbasis susu segar dengan berbagai varian rasa.","isActive":true,"sortOrder":2}
-{"_id":"category-signature-milo","_type":"category","name":"Signature Milo","description":"Kreasi spesial berbahan dasar Milo yang kaya coklat malt.","isActive":true,"sortOrder":3}
-{"_id":"category-shakerato","_type":"category","name":"Shakerato","description":"Minuman es kocok segar dengan berbagai pilihan rasa buah.","isActive":true,"sortOrder":4}
-{"_id":"category-variasi-teh","_type":"category","name":"Variasi Teh","description":"Aneka teh pilihan yang menyegarkan untuk menemani hari.","isActive":true,"sortOrder":5}
-{"_id":"category-sparkling","_type":"category","name":"Sparkling","description":"Minuman berkarbonasi segar dengan berbagai pilihan rasa.","isActive":true,"sortOrder":6}
-{"_id":"category-varian-yakult","_type":"category","name":"Varian Yakult","description":"Minuman segar berbasis Yakult yang menyehatkan dan lezat.","isActive":true,"sortOrder":7}
-{"_id":"category-makanan-berat","_type":"category","name":"Makanan Berat","description":"Menu makanan berat pilihan khas District 23.","isActive":true,"sortOrder":10}
-{"_id":"category-additional","_type":"category","name":"Additional","description":"Tambahan pilihan untuk melengkapi minumanmu.","isActive":true,"sortOrder":8}
+{"_id":"category-signature-milo","_type":"category","name":"Signature Milo","description":"Kreasi spesial berbahan dasar Milo yang kaya coklat malt.","isActive":true,"sortOrder":5}
+{"_id":"category-shakerato","_type":"category","name":"Shakerato","description":"Minuman es kocok segar dengan berbagai pilihan rasa buah.","isActive":true,"sortOrder":6}
+{"_id":"category-variasi-teh","_type":"category","name":"Variasi Teh","description":"Aneka teh pilihan yang menyegarkan untuk menemani hari.","isActive":true,"sortOrder":7}
+{"_id":"category-sparkling","_type":"category","name":"Sparkling","description":"Minuman berkarbonasi segar dengan berbagai pilihan rasa.","isActive":true,"sortOrder":8}
+{"_id":"category-varian-yakult","_type":"category","name":"Varian Yakult","description":"Minuman segar berbasis Yakult yang menyehatkan dan lezat.","isActive":true,"sortOrder":9}
+{"_id":"category-makanan-berat","_type":"category","name":"Makanan Berat","description":"Menu makanan berat pilihan khas District 23.","isActive":true,"sortOrder":4}
+{"_id":"category-additional","_type":"category","name":"Additional","description":"Tambahan pilihan untuk melengkapi minumanmu.","isActive":true,"sortOrder":10}
