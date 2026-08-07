@@ -89,52 +89,77 @@ export default async function Home() {
 
       <MenuTabs categories={categories as unknown as Parameters<typeof MenuTabs>[0]["categories"]} />
 
-      <footer className="footer footer-layout1 text-center bg-dark">
-        <div className="footer-top" style={{ paddingTop: 26, paddingBottom: 16 }}>
-          <div className="container">
-            <div
+      <footer className="footer footer-layout1 text-center bg-dark" style={{ backgroundColor: "#1f1f1f" }}>
+        <div className="footer-top" style={{ paddingTop: 36, paddingBottom: 28 }}>
+          <div className="container" style={{ maxWidth: 520 }}>
+            <a href="#top" aria-label="Back to top" style={{ display: "inline-block", marginBottom: 18 }}>
+              <Image src="/logo.png" alt="District 23 logo" width={120} height={120} />
+            </a>
+
+            <h3
               style={{
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "nowrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 16,
+                fontFamily: "'Yeseva One', serif",
+                color: "#d3a971",
+                fontWeight: 400,
+                fontSize: 56,
+                lineHeight: 1,
+                marginBottom: 8,
               }}
             >
-              <div style={{ flex: "0 0 auto", minWidth: 120, textAlign: "left" }}>
-                <a href="#top" aria-label="Back to top">
-                  <Image src="/logo.png" alt="District 23 logo" width={180} height={180} />
-                </a>
-              </div>
-              <div style={{ flex: 1, textAlign: "left" }}>
-                <h4
-                  style={{
-                    fontFamily: "'Yeseva One', serif",
-                    color: "#d3a971",
-                    fontWeight: 400,
-                    marginBottom: 10,
-                  }}
-                >
-                  Service Hour
-                </h4>
-                <p className="mb-10">Mon - Sun: 10:00 - 00:00</p>
-                <p className="mb-10">Jl. Foremose Raya No. 23, Pontianak</p>
-                <a href="#" style={{ color: "#fff", textDecoration: "none" }}>
-                  <i className="fa fa-instagram" style={{ marginRight: 8 }}></i>@district23.billiard
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12 col-md-12 col-lg-12">
-                <div className="footer__copyright">
-                  <span>&copy; {new Date().getFullYear()} District 23</span>
+              District 23
+            </h3>
+
+            <p
+              style={{
+                color: "#d3a971",
+                letterSpacing: 5,
+                marginBottom: 18,
+                fontSize: 13,
+                textTransform: "uppercase",
+              }}
+            >
+              Billiard &amp; Cafe
+            </p>
+
+            <div style={{ borderTop: "1px solid rgba(211, 169, 113, 0.45)", marginBottom: 10 }}></div>
+            <div style={{ color: "#d3a971", marginBottom: 10 }}>&#9671;</div>
+            <div style={{ borderTop: "1px solid rgba(211, 169, 113, 0.45)", marginBottom: 14 }}></div>
+
+            <div style={{ textAlign: "left" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "10px 0 14px", borderBottom: "1px solid rgba(211, 169, 113, 0.28)" }}>
+                <i className="fa fa-clock-o" style={{ color: "#d3a971", fontSize: 26, width: 30, textAlign: "center", marginTop: 2 }}></i>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ color: "#d3a971", fontSize: 13, letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 4 }}>Service Hour</div>
+                  <div style={{ color: "#fff", fontSize: 16 }}>Mon - Sun: 10:00 - 00:00</div>
                 </div>
               </div>
+
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "10px 0 14px", borderBottom: "1px solid rgba(211, 169, 113, 0.28)" }}>
+                <i className="fa fa-map-marker" style={{ color: "#d3a971", fontSize: 28, width: 30, textAlign: "center", marginTop: 2 }}></i>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ color: "#d3a971", fontSize: 13, letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 4 }}>Address</div>
+                  <div style={{ color: "#fff", fontSize: 16, lineHeight: 1.45, overflowWrap: "anywhere" }}>JL. Siradj Salman, Kawasan Ruko Grand Mahakam, Blok B11, Air Hitam, Samarinda Ulu, Samarinda City, East Kalimantan 75243</div>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "10px 0 14px", borderBottom: "1px solid rgba(211, 169, 113, 0.28)" }}>
+                <i className="fa fa-instagram" style={{ color: "#d3a971", fontSize: 28, width: 30, textAlign: "center", marginTop: 2 }}></i>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ color: "#d3a971", fontSize: 13, letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 4 }}>Instagram</div>
+                  <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: 16 }}>@district23.billiard</a>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ color: "#d3a971", marginTop: 10, marginBottom: 8 }}>&#9671;</div>
+            <div style={{ borderTop: "1px solid rgba(211, 169, 113, 0.45)" }}></div>
+          </div>
+        </div>
+        <div className="footer-bottom" style={{ backgroundColor: "#1b1b1b", paddingTop: 14, paddingBottom: 14 }}>
+          <div className="container">
+            <div className="footer__copyright">
+              <div style={{ color: "#b3b3b3", fontSize: 16 }}>&copy; {new Date().getFullYear()} District 23</div>
+              <div style={{ color: "#8b8b8b", fontSize: 14 }}>All Rights Reserved</div>
             </div>
           </div>
         </div>

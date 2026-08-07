@@ -23,78 +23,102 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
   const [activeId, setActiveId] = useState("semua");
 
   const active = activeId === "semua" ? null : (categories.find((c) => c._id === activeId) ?? null);
+  const tabItems = [{ _id: "semua", name: "Semua" }, ...categories.map((cat) => ({ _id: cat._id, name: cat.name }))];
+
+  const getTabIcon = (name: string) => {
+    const lower = name.toLowerCase();
+
+    if (lower.includes("semua")) return "fa fa-th-large";
+    if (lower.includes("coffee") || lower.includes("kopi")) return "fa fa-coffee";
+    if (lower.includes("cemilan") || lower.includes("snack")) return "fa fa-birthday-cake";
+    if (lower.includes("milk") || lower.includes("susu")) return "fa fa-glass";
+    if (lower.includes("makanan") || lower.includes("food")) return "fa fa-cutlery";
+    if (lower.includes("teh") || lower.includes("tea")) return "fa fa-lemon-o";
+    if (lower.includes("yakult")) return "fa fa-flask";
+    if (lower.includes("sparkling") || lower.includes("soda")) return "fa fa-tint";
+    return "fa fa-circle-o";
+  };
 
   const displayCategories = active ? [active] : categories;
 
   return (
     <>
-      {/* Category Tabs — horizontal scroll with fade hint */}
-      <section style={{ paddingTop: 40, paddingBottom: 40, borderBottom: "1px solid #eee", position: "relative" }}>
-        {/* right-edge fade to signal scrollability */}
-        <div style={{
-          pointerEvents: "none",
-          position: "absolute",
-          right: 0,
-          top: 0,
-          bottom: 0,
-          width: 60,
-          background: "linear-gradient(to right, transparent, #fff)",
-          zIndex: 1,
-        }} />
-        <div style={{ overflowX: "auto", paddingBottom: 4 }}>
-          <div style={{
-            display: "flex",
-            flexWrap: "nowrap",
-            justifyContent: "flex-start",
-            gap: "8px",
-            paddingLeft: 16,
-            paddingRight: 70,
-            minWidth: "max-content",
-            margin: "0 auto",
-          }}>
-            {/* Semua tab */}
-            <button
-              onClick={() => setActiveId("semua")}
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 13,
-                fontWeight: 600,
-                padding: "8px 20px",
-                border: "1px solid",
-                borderRadius: 2,
-                cursor: "pointer",
-                transition: "all .2s",
-                whiteSpace: "nowrap",
-                borderColor: activeId === "semua" ? "#d3a971" : "#ddd",
-                backgroundColor: activeId === "semua" ? "#d3a971" : "transparent",
-                color: activeId === "semua" ? "#fff" : "#282828",
-              }}
-            >
-              Semua
-            </button>
+      {/* Category tabs matching the segmented card style */}
+      <section style={{ paddingTop: 34, paddingBottom: 36, borderBottom: "1px solid #eee", position: "relative" }}>
+        <div
+          style={{
+            pointerEvents: "none",
+            position: "absolute",
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: 48,
+            background: "linear-gradient(to right, transparent, #fff)",
+            zIndex: 1,
+          }}
+        />
 
-            {categories.map((cat) => (
-              <button
-                key={cat._id}
-                onClick={() => setActiveId(cat._id)}
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  padding: "8px 20px",
-                  border: "1px solid",
-                  borderRadius: 2,
-                  cursor: "pointer",
-                  transition: "all .2s",
-                  whiteSpace: "nowrap",
-                  borderColor: cat._id === activeId ? "#d3a971" : "#ddd",
-                  backgroundColor: cat._id === activeId ? "#d3a971" : "transparent",
-                  color: cat._id === activeId ? "#fff" : "#282828",
-                }}
-              >
-                {cat.name}
-              </button>
-            ))}
+        <div className="tabs-scroll" style={{ overflowX: "auto", paddingBottom: 6 }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              alignItems: "center",
+              gap: 0,
+              minWidth: "max-content",
+              margin: "0 16px",
+              padding: "10px 12px",
+              border: "1px solid #ece7df",
+              borderRadius: 18,
+              backgroundColor: "#fff",
+              boxShadow: "0 10px 26px rgba(20, 20, 20, 0.08)",
+            }}
+          >
+            {tabItems.map((tab, index) => {
+              const isActive = activeId === tab._id;
+              const isLast = index === tabItems.length - 1;
+
+              return (
+                <div key={tab._id} style={{ display: "flex", alignItems: "center" }}>
+                  <button
+                    onClick={() => setActiveId(tab._id)}
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontSize: 13,
+                      fontWeight: 600,
+                      lineHeight: 1,
+                      padding: "12px 18px",
+                      border: "none",
+                      borderRadius: 999,
+                      cursor: "pointer",
+                      transition: "none",
+                      whiteSpace: "nowrap",
+                      backgroundColor: isActive ? "#d3a971" : "transparent",
+                      color: isActive ? "#fff" : "#2a2927",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 9,
+                    }}
+                  >
+                    <i className={getTabIcon(tab.name)} style={{ fontSize: 14, opacity: isActive ? 1 : 0.75 }}></i>
+                    <span>{tab.name}</span>
+                  </button>
+
+                  {!isLast && (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        width: 1,
+                        height: 28,
+                        backgroundColor: "#e6e1d9",
+                        marginLeft: 6,
+                        marginRight: 6,
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

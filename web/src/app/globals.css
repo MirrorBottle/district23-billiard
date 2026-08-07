@@ -1,1 +1,10 @@
 /* Template styles are loaded via public/css/ */
+
+.tabs-scroll {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.tabs-scroll::-webkit-scrollbar {
+	display: none;
+}
