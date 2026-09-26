@@ -130,7 +130,7 @@ export default async function Home() {
                 <i className="fa fa-clock-o" style={{ color: "#d3a971", fontSize: 26, width: 30, textAlign: "center", marginTop: 2 }}></i>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ color: "#d3a971", fontSize: 13, letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 4 }}>Service Hour</div>
-                  <div style={{ color: "#fff", fontSize: 16 }}>Mon - Sun: 10:00 - 00:00</div>
+                  <div style={{ color: "#fff", fontSize: 16 }}>Mon - Sun: 10:00 - 02:00</div>
                 </div>
               </div>
 
@@ -146,7 +146,16 @@ export default async function Home() {
                 <i className="fa fa-instagram" style={{ color: "#d3a971", fontSize: 28, width: 30, textAlign: "center", marginTop: 2 }}></i>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ color: "#d3a971", fontSize: 13, letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 4 }}>Instagram</div>
-                  <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: 16 }}>@district23.billiard</a>
+                  <a
+                    href="https://www.instagram.com/district23_billiard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open District 23 on Instagram in a new tab"
+                    style={{ color: "#fff", textDecoration: "none", fontSize: 16, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}
+                  >
+                    <span>@district23.billiard</span>
+                    <i className="fa fa-external-link" aria-hidden="true" style={{ color: "#d3a971", fontSize: 14 }}></i>
+                  </a>
                 </div>
               </div>
             </div>
