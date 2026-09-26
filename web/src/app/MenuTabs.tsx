@@ -40,6 +40,42 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
   };
 
   const displayCategories = active ? [active] : categories;
+  const renderItemTitle = (name: string) => {
+    const match = name.match(/^(.*)\s+\((HOT|ICE|HOT\s*\/\s*ICE)\)$/i);
+    const temperatures = match?.[2].toUpperCase().split("/").map((temperature) => temperature.trim());
+
+    return (
+      <h4 className="menu__item-title" style={temperatures ? { display: "inline-flex", alignItems: "center", flexWrap: "wrap", gap: 6 } : undefined}>
+        <span>{match?.[1] ?? name}</span>
+        {temperatures?.map((temperature) => {
+          const isHot = temperature === "HOT";
+
+          return (
+            <span
+              key={temperature}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                padding: "3px 8px",
+                borderRadius: 999,
+                backgroundColor: isHot ? "#fff3e0" : "#eaf5ff",
+                color: isHot ? "#d97706" : "#2587c5",
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 10,
+                fontWeight: 600,
+                lineHeight: 1.2,
+                whiteSpace: "nowrap",
+              }}
+            >
+              <i className={`fa ${isHot ? "fa-fire" : "fa-snowflake-o"}`} aria-hidden="true"></i>
+              {temperature}
+            </span>
+          );
+        })}
+      </h4>
+    );
+  };
 
   return (
     <>
@@ -164,7 +200,7 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
                     <div className="menu-wrapper">
                       {leftCol.map((item) => (
                         <div className="menu-item" key={item._id}>
-                          <h4 className="menu__item-title">{item.name}</h4>
+                          {renderItemTitle(item.name)}
                           {item.extra && <span className="pricing__tag">{item.extra}</span>}
                           <span className="menu__item-price">{item.price}</span>
                           {item.description && <p className="menu__item-desc">{item.description}</p>}
@@ -176,7 +212,7 @@ export default function MenuTabs({ categories }: { categories: Category[] }) {
                     <div className="menu-wrapper">
                       {rightCol.map((item) => (
                         <div className="menu-item" key={item._id}>
-                          <h4 className="menu__item-title">{item.name}</h4>
+                          {renderItemTitle(item.name)}
                           {item.extra && <span className="pricing__tag">{item.extra}</span>}
                           <span className="menu__item-price">{item.price}</span>
                           {item.description && <p className="menu__item-desc">{item.description}</p>}
